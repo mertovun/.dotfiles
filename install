@@ -1,11 +1,24 @@
 #!/usr/bin/env zsh
-# I am using zsh instead of bash.  I was having some troubles using bash with
-# arrays.  Didn't want to investigate, so I just did zsh
-pushd $DOTFILES
-for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
-do
-    echo "stow -t $HOME $folder"
-    stow -D -t $HOME $folder
-    stow -t $HOME $folder
-done
-popd
+
+stow_folders=(${(s:,:)STOW_FOLDERS})
+
+# Navigate to dotfiles directory
+if pushd $DOTFILES; then
+    for folder in $stow_folders; do
+        echo "Stowing $folder..."
+        
+        # Unstow and restow the folder
+        if ! stow -D -d "$DOTFILES" -t "$HOME" "$folder"; then
+            echo "Error unstowing $folder. Aborting."
+            exit 1
+        fi
+        if ! stow -d "$DOTFILES" -t "$HOME" "$folder"; then
+            echo "Error stowing $folder. Aborting."
+            exit 1
+        fi
+    done
+    popd
+else
+    echo "Error navigating to $DOTFILES. Aborting."
+    exit 1
+fi
