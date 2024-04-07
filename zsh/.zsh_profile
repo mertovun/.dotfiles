@@ -18,18 +18,30 @@ export DOTFILES=$HOME/.dotfiles
 export PERSONAL=$HOME/personal
 export WORK=$HOME/.dotfiles
 
-alias python="python3"
-alias dotFileInstall="$DOTFILES/install"
-alias codeSetup="cd $PERSONAL/setup && code ."
-alias codeDotfiles="cd $DOTFILES && code ."
-alias pushDotfiles="git add . && git commit -m \"autoupdate\" && git push origin master"
-
 addToPathFront $HOME/.local/.npm-global/bin
 addToPathFront $HOME/.local/scripts
 addToPathFront $HOME/.local/bin
 addToPathFront $HOME/.local/n/bin/
 addToPathFront $HOME/.local/go/bin
 addToPathFront $HOME/go/bin
+
+alias python="python3"
+alias dotFileInstall="$DOTFILES/install"
+alias codeSetup="cd $PERSONAL/setup && code ."
+alias codeDotfiles="cd $DOTFILES && code ."
+
+pushDotfiles() {
+    local current_dir="$(pwd)"
+
+    cd $DOTFILES || return
+
+    git add .
+    git commit -m "${1:-autoupdate}"
+    git push origin master
+
+    # Return to the original directory
+    cd "$current_dir" || return
+}
 
 bindkey -s ^f "tmux-sessionizer\n"
 
