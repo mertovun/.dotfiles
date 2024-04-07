@@ -1,2 +1,3 @@
-2024/04/07-20:28:39.368 ae07 Creating DB /home/mert/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb since it was missing.
-2024/04/07-20:28:39.377 ae07 Reusing MANIFEST /home/mert/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2024/04/07-20:58:26.566 c58c Reusing MANIFEST /home/mert/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2024/04/07-20:58:26.566 c58c Recovering log #3
+2024/04/07-20:58:26.566 c58c Reusing old log /home/mert/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000003.log 

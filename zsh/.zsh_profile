@@ -17,7 +17,7 @@ export N_PREFIX="$HOME/.local/n"
 export DOTFILES=$HOME/personal/.dotfiles
 export PERSONAL=$HOME/personal
 export WORK=$HOME/work
-export OBSIDIAN=$personal/mert-obsidian
+export OBSIDIAN=$PERSONAL/mert-obsidian
 
 addToPathFront $HOME/.local/.npm-global/bin
 addToPathFront $HOME/.local/scripts
@@ -31,7 +31,7 @@ alias codeSetup="cd $PERSONAL/setup && code ."
 alias installDotFiles="$DOTFILES/ubuntu"
 alias codeDotfiles="cd $DOTFILES && code ."
 
-alias obs="obsidian $OBSIDIAN &"
+alias obsidian="obsidian &"
 
 pushDotfiles() {
     local current_dir="$(pwd)"
@@ -39,8 +39,23 @@ pushDotfiles() {
     cd $DOTFILES || return
 
     git add .
-    echo "Committing with message: ${1:-autoupdate}"
-    git commit -m "${1:-autoupdate}"
+    echo "Committing with message: ${1:-autocommit}"
+    git commit -m "${1:-autocommit}"
+    git push origin master
+
+    # Return to the original directory
+    cd "$current_dir" || return
+}
+
+syncObsidian() {
+    local current_dir="$(pwd)"
+
+    cd $OBSIDIAN || return
+
+    git pull origin master
+    git add .
+    echo "Committing with message: ${1:-autocommit}"
+    git commit -m "${1:-autocommit}"
     git push origin master
 
     # Return to the original directory
