@@ -1,0 +1,8 @@
+#!/bin/bash
+i3-msg "split v"                      # Split the current window vertically
+i3-msg "exec gnome-terminal"          # Replace gnome-terminal with your preferred terminal or application
+i3-msg "split h"                      # Split the second pane horizontally
+i3-msg "exec gnome-terminal"          # Open a second instance of your terminal/application
+i3-msg "focus left"                   # Focus on the first (left) terminal
+i3-msg "resize shrink width 25 px or 25 ppt" # Adjust the width of the first pane
+i3-msg "focus right"                  # Focus back on the right

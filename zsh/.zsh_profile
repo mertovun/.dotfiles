@@ -19,6 +19,8 @@ export PERSONAL=$HOME/personal
 export WORK=$HOME/work
 export OBSIDIAN=$PERSONAL/mert-obsidian
 
+
+addToPathFront /usr/local/lib/python3.10/dist-packages
 addToPathFront $HOME/.local/.npm-global/bin
 addToPathFront $HOME/.local/scripts
 addToPathFront $HOME/.local/bin
@@ -31,8 +33,6 @@ alias codeSetup="cd $PERSONAL/setup && code ."
 alias installDotFiles="$DOTFILES/ubuntu"
 alias codeDotfiles="cd $DOTFILES && code ."
 
-alias obsidian="obsidian &"
-
 pushDotfiles() {
     local current_dir="$(pwd)"
 
@@ -43,9 +43,10 @@ pushDotfiles() {
     git commit -m "${1:-autocommit}"
     git push origin master
 
-    # Return to the original directory
     cd "$current_dir" || return
 }
+
+alias obsidian="obsidian &"
 
 syncObsidian() {
     local current_dir="$(pwd)"
@@ -58,7 +59,6 @@ syncObsidian() {
     git commit -m "${1:-autocommit}"
     git push origin master
 
-    # Return to the original directory
     cd "$current_dir" || return
 }
 
