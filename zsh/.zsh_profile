@@ -26,9 +26,11 @@ addToPathFront $HOME/.local/go/bin
 addToPathFront $HOME/go/bin
 
 alias python="python3"
-alias dotFileInstall="$DOTFILES/install"
 alias codeSetup="cd $PERSONAL/setup && code ."
+alias installDotFiles="$DOTFILES/ubuntu"
 alias codeDotfiles="cd $DOTFILES && code ."
+
+alias obs="obsidian &"
 
 pushDotfiles() {
     local current_dir="$(pwd)"
