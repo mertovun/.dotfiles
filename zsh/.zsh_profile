@@ -14,9 +14,9 @@ export CXX="clang++-12"
 export PYTHONBREAKPOINT="pudb.set_trace"
 export GOPATH=$HOME/go
 export N_PREFIX="$HOME/.local/n"
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES=$HOME/personal/.dotfiles
 export PERSONAL=$HOME/personal
-export WORK=$HOME/.dotfiles
+export WORK=$HOME/work
 
 addToPathFront $HOME/.local/.npm-global/bin
 addToPathFront $HOME/.local/scripts
