@@ -36,6 +36,7 @@ pushDotfiles() {
     cd $DOTFILES || return
 
     git add .
+    echo "Committing with message: ${1:-autoupdate}"
     git commit -m "${1:-autoupdate}"
     git push origin master
 
