@@ -5,7 +5,7 @@ pushd $DOTFILES
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
     echo "stow -t $HOME $folder"
-    stow -D $folder
-    stow $folder
+    stow -D -t $HOME $folder
+    stow -t $HOME $folder
 done
 popd
