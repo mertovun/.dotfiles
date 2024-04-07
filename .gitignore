@@ -1,7 +1,7 @@
-docs/.obsidian/*
-!docs/.obsidian/app.json
-!docs/.obsidian/appearance.json
-!docs/.obsidian/core-plugins.json
-!docs/.obsidian/core-plugins-migration.json
-!docs/.obsidian/hotkeys.json
-!docs/.obsidian/templates.json
+obsidian/.config/obsidian/*
+!obsidian/.config/obsidian/app.json
+!obsidian/.config/obsidian/appearance.json
+!obsidian/.config/obsidian/core-plugins.json
+!obsidian/.config/obsidian/core-plugins-migration.json
+!obsidian/.config/obsidian/hotkeys.json
+!obsidian/.config/obsidian/templates.json
