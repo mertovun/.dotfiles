@@ -170,7 +170,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-# bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -219,8 +219,10 @@ exec --no-startup-id nm-applet
 # bindsym $mod+Shift+s exec --no-startup-id ~/dotfiles/bin/monitor
 # bindsym $mod+Shift+n exec --no-startup-id ~/dotfiles/bin/resolution
 
-bindsym $mod+Shift+s exec i3-resurrect save --all
-bindsym $mod+Shift+r exec i3-resurrect restore --all
+# bindsym $mod+Shift+s exec i3-resurrect save --all
+# bindsym $mod+Shift+r exec i3-resurrect restore --all
+
+# bindsym $mod+t exec --no-startup-id  i3-msg 'workspace 2; exec google-chrome'
 
 
 # FKeys
