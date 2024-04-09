@@ -5,5 +5,3 @@ obsidian/.config/obsidian/*
 !obsidian/.config/obsidian/core-plugins-migration.json
 !obsidian/.config/obsidian/hotkeys.json
 !obsidian/.config/obsidian/templates.json
-
-vscode/.vscode/extensions
