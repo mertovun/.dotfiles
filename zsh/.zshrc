@@ -107,3 +107,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+source /opt/ros/humble/setup.zsh
