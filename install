@@ -12,10 +12,10 @@ if pushd $DOTFILES; then
             echo "Error unstowing $folder. Aborting."
             exit 1
         fi
-        if ! stow -d "$DOTFILES" -t "$HOME" "$folder"; then
-            echo "Error stowing $folder. Aborting."
-            exit 1
-        fi
+        # if ! stow -d "$DOTFILES" -t "$HOME" "$folder"; then
+        #     echo "Error stowing $folder. Aborting."
+        #     exit 1
+        # fi
     done
     popd
 else
