@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Function to compile a C++ source file and run it with valgrind
+valgrindCpp() {
+    local source_file="$1"  # Capture the first argument as the source file name
+    
+    # Check if the source file argument was provided
+    if [[ -z "$source_file" ]]; then
+        echo "Error: No source file provided."
+        return 1  # Return with an error status
+    fi
+
+    # Check if the source file exists
+    if [[ ! -f "$source_file" ]]; then
+        echo "Error: Source file '$source_file' does not exist."
+        return 1  # Return with an error status
+    fi
+
+    # Extract the base name for the source file to use for the executable
+    local exec_name="${source_file%.*}"
+
+    echo "Compiling $source_file into executable named $exec_name..."
+
+    # Compile the source file into an executable
+    g++ -g -o "$exec_name" "$source_file"
+    if [ $? -ne 0 ]; then
+        echo "Compilation failed."
+        return 1  # Return with an error status if compilation fails
+    fi
+
+    echo "Compilation succeeded. Executable named $exec_name created."
+
+    # Check if the executable was created successfully
+    if [[ ! -f "$exec_name" ]]; then
+        echo "Error: Compilation did not produce an executable."
+        return 1
+    fi
+
+    chmod +x "$exec_name"
+
+    # Construct the path to the executable
+    local exec_path="./$exec_name"
+
+    echo "Running valgrind on the executable $exec_path..."
+
+    # Run valgrind with the provided settings on the compiled executable
+    valgrind --leak-check=full -s --track-origins=yes --log-file=./$exec_path.valgrind.out "$exec_path"
+}
+
+valgrindCpp $1
+# To use this function, remove the comment from the line below and replace `main.cpp` with your actual file name
+# valgrind-cpp main.cpp

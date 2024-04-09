@@ -1,11 +1,5 @@
-# export XDG_CONFIG_HOME=$HOME/.config
-# VIM="nvim"
 
-# PERSONAL=$XDG_CONFIG_HOME/personal
-# source $PERSONAL/env
-# for i in `find -L $PERSONAL`; do
-#     source $i
-# done
+
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
@@ -19,6 +13,11 @@ export PERSONAL=$HOME/personal
 export WORK=$HOME/work
 export OBSIDIAN=$PERSONAL/mert-obsidian
 
+# PERSONAL_CONFIG=$XDG_CONFIG_HOME/personal
+# source $PERSONAL/env
+# for i in `find -L $PERSONAL`; do
+#     source $i
+# done
 
 addToPathFront /usr/local/lib/python3.10/dist-packages
 addToPathFront $HOME/.local/.npm-global/bin
@@ -61,6 +60,8 @@ syncObsidian() {
 
     cd "$current_dir" || return
 }
+
+
 
 bindkey -s ^f "tmux-sessionizer\n"
 
