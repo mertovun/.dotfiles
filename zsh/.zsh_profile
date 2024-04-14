@@ -19,6 +19,11 @@ export OBSIDIAN=$PERSONAL/mert-obsidian
 #     source $i
 # done
 
+
+if [[ -f "$HOME/openai/openai.key" ]]; then
+    export OPENAI_API_KEY=$(cat $HOME/openai/openai.key)
+fi
+
 addToPathFront /usr/local/lib/python3.10/dist-packages
 addToPathFront $HOME/.local/.npm-global/bin
 addToPathFront $HOME/.local/scripts
