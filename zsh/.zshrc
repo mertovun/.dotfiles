@@ -108,3 +108,19 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 source /opt/ros/humble/setup.zsh
+
+# pnpm
+export PNPM_HOME="/home/mert/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# zig
+export ZIG_HOME="/usr/local/zig"
+case ":$PATH:" in
+  *":$ZIG_HOME:"*) ;;
+  *) export PATH="$ZIG_HOME:$PATH" ;;
+esac
+# zig end
